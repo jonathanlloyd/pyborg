@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+printf 'Formatting source...\n'
+poetry run black ./pyborg
+printf '\n\nFormatting tests...\n'
+poetry run black ./tests

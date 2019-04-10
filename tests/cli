@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+
+if __name__ == "__main__":
+    input_1 = input("Input 1: ")
+    input_2 = input("Input 2: ")
+    input_3 = input("Input 3: ")
+    print(f"{input_1}, {input_2}, {input_3}")
