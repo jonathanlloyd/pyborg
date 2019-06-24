@@ -24,3 +24,14 @@ a, b, c
     )
 
     assert return_code == 0
+
+
+def test_captures_stderr():
+    def on_prompt(prompt_text):
+        return ""
+
+    result, return_code = pyborg.execute("./tests/broken_cli", [], on_prompt)
+
+    assert "ERROR!" in result
+    assert return_code == 1
+

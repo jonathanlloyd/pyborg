@@ -41,6 +41,12 @@ def execute(command, arguments, callback):
 
     while True:
         prompt_text_bytes, return_code = _read_prompt(proc)
+        has_errored = isinstance(return_code, int) and return_code > 0
+        if has_errored:
+            _, error_bytes = proc.communicate()
+            error = error_bytes.decode()
+            return error, return_code
+
         prompt_text = prompt_text_bytes.decode()
 
         ended = return_code is not None
